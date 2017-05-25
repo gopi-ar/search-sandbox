@@ -1,0 +1,81 @@
+summary:focus {
+    outline-style: none;
+}
+
+details > summary {
+    margin-left: 20px;
+}
+
+details details summary {
+    margin-left: 36px;
+}
+
+.inner-summary {
+    margin: 10px;
+    padding: 20px;
+}
+
+#map {
+    height: 200px;
+    width: calc(100%);
+}
+.param-label {
+    height: 41px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.param-input {
+    vertical-align: middle;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.thin-border {
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: .3em;
+    padding-top: 10px;
+}
+
+.alert {
+    word-wrap: break-word;
+    margin: 15px;
+}
+
+img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.upper-half {
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0px;
+}
+
+.sharp-corners {
+    border-radius: 0 0 0 0;
+    margin-top: -1px;
+    margin-bottom: 0px;
+}
+
+.bottom-half {
+    border-radius:  0 0 5px 5px;
+    margin-top: -1px;
+}
+
+.btn {
+    margin-bottom: 15px;
+}
+
+#results-container {
+    display: none;
+}
+
+input::placeholder {
+    font-style: italic;
+}
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
