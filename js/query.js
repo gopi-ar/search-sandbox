@@ -75,6 +75,7 @@ function buildQueryURIParams() {
     case 'search':              return buildSearchQueryURIParams();
     case 'search/structured':   return buildStructuredQueryURIParams();
     case 'reverse':             return buildReverseQueryURIParams();
+    case 'autocomplete':        return buildAutocompleteQueryURIParams();
   }
 }
 
@@ -83,5 +84,6 @@ function executeQuery() {
     case 'search':              return executeSearchQuery();
     case 'search/structured':   return executeStructuredQuery();
     case 'reverse':             return executeReverseQuery();
+    case 'autocomplete':        return executeAutocompleteQuery();
   }
 }

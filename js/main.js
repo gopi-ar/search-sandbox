@@ -59,6 +59,7 @@ function renderParams() {
     case 'search':            return renderSearchParams();
     case 'search/structured': return renderStructuredParams();
     case 'reverse':           return renderReverseParams();
+    case 'autocomplete':      return renderAutocompleteParams();
   }
 
 }
@@ -68,6 +69,7 @@ function loadURIParams(params) {
     case 'search':            return loadSearchParams(params);
     case 'search/structured': return loadStructuredParams(params);
     case 'reverse':           return loadReverseParams(params);
+    case 'autocomplete':      return loadAutocompleteParams(params);
   }
 }
 
@@ -76,5 +78,6 @@ function buildQueryPreview() {
     case 'search':              return buildSearchQueryPreview();
     case 'search/structured':   return buildStructuredQueryPreview();
     case 'reverse':             return buildReverseQueryPreview();
+    case 'autocomplete':        return buildAutocompleteQueryPreview();
   }
 }
