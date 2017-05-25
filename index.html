@@ -48,14 +48,14 @@
             <!--RESET/SEND BUTTONS-->
             <div class="upper-half thin-border" style="background-color: #f8f8f8;">
                 <button id="params-reset" class="col-md-offset-8 btn btn-secondary" onclick="resetParams()">reset</button>
-                <button id="params-send" class="col-md-offset-10 btn btn-primary" onclick="query()">send</button>
+                <button id="params-send" class="col-md-offset-10 btn btn-primary" onclick="onSend()">send</button>
             </div>
 
             <!--PARAMS FORM-->
             <form id="params-form" class="thin-border bottom-half"></form>
 
             <!--DIVIDER IMAGE-->
-            <div class="text-center">
+            <div id="divider" class="text-center">
                 <img style="width:124px; height:24px;" src="https://mapzen.com/common/styleguide/images/divider/compass-secondary.png">
             </div>
 

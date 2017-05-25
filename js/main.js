@@ -1,7 +1,7 @@
 function redirectToQuery(e) {
   if (e.keyCode == 13) {
 
-    query();
+    onSend();
 
     event.preventDefault();
     return false;
@@ -9,6 +9,15 @@ function redirectToQuery(e) {
   else {
     document.getElementById('query-preview').innerHTML = '<h4>' + buildSearchQueryPreview() + '</h4>';
   }
+}
+
+function onSend() {
+  query();
+  document.getElementById("divider").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    }
+  );
 }
 
 function resetParams() {
