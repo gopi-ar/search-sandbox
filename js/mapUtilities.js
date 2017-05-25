@@ -15,12 +15,15 @@ var map = L.Mapzen.map("map", mapOptions);
 var markers = null;
 
 function populateMap(results) {
+  // this is needed to avoid errors in zooming to bbox
+  map.invalidateSize();
+
   dropMarkers(results);
 
   if (results.bbox) {
     const bounds = L.latLngBounds(
-      L.latLng(results.bbox[1], results.bbox[0]),
-      L.latLng(results.bbox[3], results.bbox[2])
+      L.latLng(results.bbox[1] || -1, results.bbox[0] || -1),
+      L.latLng(results.bbox[3] || 1, results.bbox[2] || 1)
     );
     map.fitBounds(bounds, {padding: [50, 50]});
   }

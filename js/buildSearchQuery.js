@@ -33,10 +33,3 @@ function buildSearchQueryURIParams() {
   var params = buildSearchQueryParams();
   return buildUrlParamsForTracking('search', params);
 }
-
-function setParamIfSpecified(params, paramName) {
-  var el = document.getElementById('input-' + paramName);
-  if (el.value.length > 0 ) {
-    params[paramName] = el.value;
-  }
-}

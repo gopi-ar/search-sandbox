@@ -1,7 +1,7 @@
 
 function query() {
   // update URL to contain the new params
-  var urlParams = buildSearchQueryURIParams();
+  var urlParams = buildQueryURIParams();
 
   if (!urlParams || urlParams.length === 0) {
     console.error('No query parameters have been specified!');
@@ -12,10 +12,8 @@ function query() {
   window.history.replaceState(null, null, '?' + urlParams);
 
   document.getElementById('results-container').style.display = 'inline';
-  // this is needed to avoid errors in zooming to bbox
-  map.invalidateSize();
 
-  var results = executeSearchQuery();
+  var results = executeQuery();
 
   console.log(results);
 
@@ -69,5 +67,21 @@ function populateList(results) {
       listEl.appendChild(label);
     });
     containerEl.appendChild(listEl);
+  }
+}
+
+function buildQueryURIParams() {
+  switch (currentEndpoint) {
+    case 'search':              return buildSearchQueryURIParams();
+    case 'search/structured':   return buildStructuredQueryURIParams();
+    case 'reverse':             return buildReverseQueryURIParams();
+  }
+}
+
+function executeQuery() {
+  switch (currentEndpoint) {
+    case 'search':              return executeSearchQuery();
+    case 'search/structured':   return executeStructuredQuery();
+    case 'reverse':             return executeReverseQuery();
   }
 }

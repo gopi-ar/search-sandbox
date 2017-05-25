@@ -1,3 +1,5 @@
+var currentEndpoint = 'search';
+
 function redirectToQuery(e) {
   if (e.keyCode == 13) {
 
@@ -7,7 +9,7 @@ function redirectToQuery(e) {
     return false;
   }
   else {
-    document.getElementById('query-preview').innerHTML = '<h4>' + buildSearchQueryPreview() + '</h4>';
+    document.getElementById('query-preview').innerHTML = '<h4>' + buildQueryPreview() + '</h4>';
   }
 }
 
@@ -21,31 +23,58 @@ function onSend() {
 }
 
 function resetParams() {
-  window.location.href = window.location.origin + window.location.pathname + '?query=search';
+  window.location.href = window.location.origin + window.location.pathname + '?query=' + currentEndpoint;
 }
 
 function onLoad() {
-  renderParams('search');
-  loadURIParams('search');
-  document.getElementById('query-preview').innerHTML = '<h4>' + buildSearchQueryPreview() + '</h4>';
+
+  var params = getAllUrlParams();
+  currentEndpoint = params.query || currentEndpoint;
+
+  renderParams();
+  loadURIParams(params);
+
+  document.getElementById('endpoint-' + currentEndpoint).classList.add('active');
+
+  document.getElementById('query-preview').innerHTML = '<h4>' + buildQueryPreview() + '</h4>';
   query();
 }
 
-function renderParams(endpoint) {
+function selectEndpoint(endpoint) {
+  if (currentEndpoint === endpoint) {
+    return;
+  }
 
-  switch (endpoint) {
-    case 'search':
-      renderSearchParams();
-      break;
+  document.getElementById('endpoint-' + currentEndpoint).classList.remove('active');
+
+  currentEndpoint = endpoint;
+
+  document.getElementById('endpoint-' + currentEndpoint).classList.add('active');
+
+  resetParams();
+}
+
+function renderParams() {
+  switch (currentEndpoint) {
+    case 'search':            return renderSearchParams();
+    case 'search/structured': return renderStructuredParams();
+    case 'reverse':           return renderReverseParams();
   }
 
 }
 
-function loadURIParams(endpoint) {
+function loadURIParams(params) {
+  switch (currentEndpoint) {
+    case 'search':            return loadSearchParams(params);
+    case 'search/structured': return loadStructuredParams(params);
+    case 'reverse':           return loadReverseParams(params);
+  }
+}
 
-  switch (endpoint) {
-    case 'search':
-      loadSearchParams(getAllUrlParams());
-      break;
+function buildQueryPreview() {
+  switch (currentEndpoint) {
+    case 'search':              return buildSearchQueryPreview();
+    case 'search/structured':   return buildStructuredQueryPreview();
+    case 'reverse':             return buildReverseQueryPreview();
   }
 }

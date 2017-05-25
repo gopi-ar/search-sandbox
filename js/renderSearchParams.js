@@ -59,33 +59,6 @@ function renderSearchParams() {
   setFocus('text');
 }
 
-
-function setInputFieldIfSpecified(params, paramName) {
-  if (params.hasOwnProperty(paramName)) {
-    document.getElementById('input-' + paramName).value = decodeURIComponent(params[paramName]);
-
-    expandParentSummary(document.getElementById('input-' + paramName));
-  }
-}
-
-function expandParentSummary(el) {
-  var parent = el.parentElement;
-
-  console.log(parent, parent.tagName);
-
-  if (parent.id === 'params-form') {
-    return;
-  }
-
-  if (parent.tagName === 'DETAILS' && !parent.expanded) {
-    console.log('expanding', parent.firstChild);
-    parent.firstChild.click();
-    parent.expanded = true;
-  }
-
-  return expandParentSummary(parent);
-}
-
 function loadSearchParams(params) {
   console.log('loading params', params);
 

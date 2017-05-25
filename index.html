@@ -33,11 +33,11 @@
     <div class="demo-controls" id="demo-controls">
         <div class="demo-control-previous"><i class="fa fa-fw fa-angle-left"></i></div>
         <ul class="demo-control-list">
-            <li class="demo-control active"> /search </li>
-            <li class="demo-control"> /search/structured </li>
-            <li class="demo-control"> /reverse </li>
-            <li class="demo-control"> /autocomplete </li>
-            <li class="demo-control"> /place </li>
+            <li id="endpoint-search" class="demo-control" onclick="selectEndpoint('search')"> /search </li>
+            <li id="endpoint-search/structured" class="demo-control" onclick="selectEndpoint('search/structured')"> /search/structured </li>
+            <li id="endpoint-reverse" class="demo-control" onclick="selectEndpoint('reverse')"> /reverse </li>
+            <li id="endpoint-autocomplete" class="demo-control" onclick="selectEndpoint('autocomplete')"> /autocomplete </li>
+            <li id="endpoint-place" class="demo-control" onclick="selectEndpoint('place')"> /place </li>
         </ul>
         <div class="demo-control-next"><i class="fa fa-fw fa-angle-right"></i></div>
     </div>
@@ -75,8 +75,12 @@
     <script src="js/mapzen-services.js"></script>
     <script src="js/mapUtilities.js"></script>
     <script src="js/renderUtilities.js"></script>
-    <script src="js/renderParams.js"></script>
-    <script src="js/buildQuery.js"></script>
+    <script src="js/renderSearchParams.js"></script>
+    <script src="js/renderStructuredParams.js"></script>
+    <script src="js/renderReverseParams.js"></script>
+    <script src="js/buildSearchQuery.js"></script>
+    <script src="js/buildStructuredQuery.js"></script>
+    <script src="js/buildReverseQuery.js"></script>
     <script src="js/query.js"></script>
     <script src="js/main.js"></script>
 </body>
