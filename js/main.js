@@ -7,16 +7,14 @@ window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
 
 function redirectToQuery(e) {
   if (e.keyCode === 13) {
-
-    event.preventDefault();
-
     onSend();
-
+    e.preventDefault();
     return false;
   }
   else {
     document.getElementById('query-preview').innerHTML = '<h4>' + buildQueryPreview() + '</h4>';
   }
+  return true;
 }
 
 function onSend() {
