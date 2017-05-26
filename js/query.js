@@ -63,7 +63,8 @@ function populateList(results) {
     listEl.id = 'results-list';
     results.features.forEach(function (record) {
       var label = document.createElement('li');
-      label.innerHTML = record.properties.label;
+      var linkPath = window.location.origin + window.location.pathname + '?' + buildPlaceQueryURIParams({ids: record.properties.gid});
+      label.innerHTML = '<a href="' + linkPath + '">' + record.properties.label + "</a>";
       listEl.appendChild(label);
     });
     containerEl.appendChild(listEl);

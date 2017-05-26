@@ -17,7 +17,7 @@ function buildPlaceQueryPreview() {
   return buildUrl('place', params, true);
 }
 
-function buildPlaceQueryURIParams() {
-  var params = buildPlaceQueryParams();
+function buildPlaceQueryURIParams(params) {
+  params = params || buildPlaceQueryParams();
   return buildUrlParamsForTracking('place', params);
 }
