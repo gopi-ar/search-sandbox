@@ -76,7 +76,9 @@ function buildQueryURIParams() {
     case 'search/structured':   return buildStructuredQueryURIParams();
     case 'reverse':             return buildReverseQueryURIParams();
     case 'autocomplete':        return buildAutocompleteQueryURIParams();
+    case 'place':               return buildPlaceQueryURIParams();
   }
+  console.error('unknown endpoint:', currentEndpoint);
 }
 
 function executeQuery() {
@@ -85,5 +87,7 @@ function executeQuery() {
     case 'search/structured':   return executeStructuredQuery();
     case 'reverse':             return executeReverseQuery();
     case 'autocomplete':        return executeAutocompleteQuery();
+    case 'place':               return executePlaceQuery();
   }
+  console.error('unknown endpoint:', currentEndpoint);
 }

@@ -37,6 +37,8 @@ function buildUrl(query, params, display) {
     })
     .join('&');
 
+  console.log(mapzen_search_url + query + '?' + paramsStr);
+
   return mapzen_search_url + query + '?' + paramsStr;
 }
 

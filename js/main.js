@@ -1,11 +1,17 @@
 var currentEndpoint = 'search';
 
+window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
+  alert("Error occured: " + errorMsg, url, lineNumber);
+  return false;
+};
+
 function redirectToQuery(e) {
-  if (e.keyCode == 13) {
+  if (e.keyCode === 13) {
+
+    event.preventDefault();
 
     onSend();
 
-    event.preventDefault();
     return false;
   }
   else {
@@ -40,6 +46,27 @@ function onLoad() {
   query();
 }
 
+var endpoints = [
+  'search',
+  'search/structured',
+  'reverse',
+  'autocomplete',
+  'place'
+];
+
+function nextEndpoint() {
+  var next = (endpoints.indexOf(currentEndpoint) + 1) % endpoints.length;
+  selectEndpoint(endpoints[next]);
+}
+
+function previousEndpoint() {
+  var next = endpoints.indexOf(currentEndpoint) - 1;
+  if (next < 0) {
+    next = endpoints.length-1;
+  }
+  selectEndpoint(endpoints[next]);
+}
+
 function selectEndpoint(endpoint) {
   if (currentEndpoint === endpoint) {
     return;
@@ -60,8 +87,9 @@ function renderParams() {
     case 'search/structured': return renderStructuredParams();
     case 'reverse':           return renderReverseParams();
     case 'autocomplete':      return renderAutocompleteParams();
+    case 'place':             return renderPlaceParams();
   }
-
+  console.error('unknown endpoint:', currentEndpoint);
 }
 
 function loadURIParams(params) {
@@ -70,7 +98,9 @@ function loadURIParams(params) {
     case 'search/structured': return loadStructuredParams(params);
     case 'reverse':           return loadReverseParams(params);
     case 'autocomplete':      return loadAutocompleteParams(params);
+    case 'place':             return loadPlaceParams(params);
   }
+  console.error('unknown endpoint:', currentEndpoint);
 }
 
 function buildQueryPreview() {
@@ -79,5 +109,7 @@ function buildQueryPreview() {
     case 'search/structured':   return buildStructuredQueryPreview();
     case 'reverse':             return buildReverseQueryPreview();
     case 'autocomplete':        return buildAutocompleteQueryPreview();
+    case 'place':               return buildPlaceQueryPreview();
   }
+  console.error('unknown endpoint:', currentEndpoint);
 }

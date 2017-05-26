@@ -31,7 +31,7 @@
     </div>
 
     <div class="demo-controls" id="demo-controls">
-        <div class="demo-control-previous"><i class="fa fa-fw fa-angle-left"></i></div>
+        <div class="demo-control-previous" onclick="previousEndpoint()"><i class="fa fa-fw fa-angle-left"></i></div>
         <ul class="demo-control-list">
             <li id="endpoint-search" class="demo-control" onclick="selectEndpoint('search')"> /search </li>
             <li id="endpoint-search/structured" class="demo-control" onclick="selectEndpoint('search/structured')"> /search/structured </li>
@@ -39,7 +39,7 @@
             <li id="endpoint-autocomplete" class="demo-control" onclick="selectEndpoint('autocomplete')"> /autocomplete </li>
             <li id="endpoint-place" class="demo-control" onclick="selectEndpoint('place')"> /place </li>
         </ul>
-        <div class="demo-control-next"><i class="fa fa-fw fa-angle-right"></i></div>
+        <div class="demo-control-next" onclick="nextEndpoint()"><i class="fa fa-fw fa-angle-right"></i></div>
     </div>
 
     <div class="col-md-6 col-md-offset-3">
@@ -79,10 +79,12 @@
     <script src="js/renderers/renderStructuredParams.js"></script>
     <script src="js/renderers/renderReverseParams.js"></script>
     <script src="js/renderers/renderAutocompleteParams.js"></script>
+    <script src="js/renderers/renderPlaceParams.js"></script>
     <script src="js/queryBuilders/buildSearchQuery.js"></script>
     <script src="js/queryBuilders/buildStructuredQuery.js"></script>
     <script src="js/queryBuilders/buildReverseQuery.js"></script>
     <script src="js/queryBuilders/buildAutocompleteQuery.js"></script>
+    <script src="js/queryBuilders/buildPlaceQuery.js"></script>
     <script src="js/query.js"></script>
     <script src="js/main.js"></script>
 </body>
