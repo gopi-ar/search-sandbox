@@ -1,3 +1,7 @@
+test:
+  override:
+    - "true"
+    
 deployment:
   staging:
     branch: gh-pages
