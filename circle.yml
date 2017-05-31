@@ -1,0 +1,10 @@
+deployment:
+  staging:
+    branch: gh-pages
+    commands:
+      - aws s3 sync . "s3://static-dev.mapzen.com/search/explorer/"
+
+  production:
+    branch: production
+    commands:
+      - aws s3 sync . "s3://static-prod.mapzen.com/search/explorer/"
