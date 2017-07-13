@@ -24,6 +24,7 @@ function buildStructuredQueryParams() {
   setParamIfSpecified(params, 'boundary.circle.radius');
   setParamIfSpecified(params, 'focus.point.lat');
   setParamIfSpecified(params, 'focus.point.lon');
+  setParamIfSpecified(params, 'lang');
 
   return params;
 }
