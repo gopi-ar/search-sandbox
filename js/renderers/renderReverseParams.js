@@ -23,8 +23,12 @@ function renderReverseParams() {
   var boundaryCountry = createExpandableGroup('boundary.country', true);
   boundaryCountry.children[1].appendChild(createParam('boundary.country'));
 
+  var boundaryCircle = createExpandableGroup('boundary.circle', true);
+  boundaryCircle.children[1].appendChild(createParam('boundary.circle.radius'));
+
   var boundaries = createExpandableGroup('boundary', false);
   boundaries.appendChild(boundaryCountry);
+  boundaries.appendChild(boundaryCircle);
   paramContainerEl.appendChild(boundaries);
 
   /**
