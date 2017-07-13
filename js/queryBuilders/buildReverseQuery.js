@@ -7,6 +7,7 @@ function buildReverseQueryParams() {
   setParamIfSpecified(params, 'sources');
   setParamIfSpecified(params, 'layers');
   setParamIfSpecified(params, 'boundary.country');
+  setParamIfSpecified(params, 'lang');
 
   return params;
 }
