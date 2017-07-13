@@ -2,6 +2,7 @@ function buildPlaceQueryParams() {
   var params = {};
 
   setParamIfSpecified(params, 'ids');
+  setParamIfSpecified(params, 'lang');
 
   return params;
 }
