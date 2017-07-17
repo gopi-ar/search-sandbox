@@ -66,6 +66,13 @@ function renderStructuredParams() {
   size.children[1].appendChild(createParam('size', 7, 4));
   paramContainerEl.appendChild(size);
 
+  /**
+   * LANGUAGE
+   */
+  var language = createExpandableGroup('language', true);
+  language.children[1].appendChild(createParam('lang', 7, 4));
+  paramContainerEl.appendChild(language);
+
   setFocus('address');
 }
 

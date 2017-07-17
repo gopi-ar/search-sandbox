@@ -24,7 +24,6 @@ function renderAutocompleteParams() {
   focusPoint.children[1].appendChild(createParam('focus.point.lon'));
   paramContainerEl.appendChild(focusPoint);
 
-
   /**
    * BOUNDARIES
    */
@@ -41,6 +40,13 @@ function renderAutocompleteParams() {
   boundaries.appendChild(boundaryCountry);
   boundaries.appendChild(boundaryRect);
   paramContainerEl.appendChild(boundaries);
+
+  /**
+   * LANGUAGE
+   */
+  var language = createExpandableGroup('language', true);
+  language.children[1].appendChild(createParam('lang', 7, 4));
+  paramContainerEl.appendChild(language);
 
   setFocus('text');
 }
