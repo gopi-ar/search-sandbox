@@ -11,6 +11,7 @@ function buildAutocompleteQueryParams() {
   setParamIfSpecified(params, 'boundary.rect.max_lon');
   setParamIfSpecified(params, 'focus.point.lat');
   setParamIfSpecified(params, 'focus.point.lon');
+  setParamIfSpecified(params, 'lang');
 
   return params;
 }

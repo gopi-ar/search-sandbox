@@ -24,7 +24,7 @@ function buildUrl(query, params, display) {
   params = params || {};
 
   if (display) {
-    params.api_key = 'YOUR_KEY';
+    params.api_key = 'your-mapzen-api-key';
   }
   else {
     params.api_key = search_api_key;

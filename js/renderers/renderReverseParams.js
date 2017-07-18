@@ -23,8 +23,12 @@ function renderReverseParams() {
   var boundaryCountry = createExpandableGroup('boundary.country', true);
   boundaryCountry.children[1].appendChild(createParam('boundary.country'));
 
+  var boundaryCircle = createExpandableGroup('boundary.circle', true);
+  boundaryCircle.children[1].appendChild(createParam('boundary.circle.radius'));
+
   var boundaries = createExpandableGroup('boundary', false);
   boundaries.appendChild(boundaryCountry);
+  boundaries.appendChild(boundaryCircle);
   paramContainerEl.appendChild(boundaries);
 
   /**
@@ -33,6 +37,13 @@ function renderReverseParams() {
   var size = createExpandableGroup('size', true);
   size.children[1].appendChild(createParam('size', 7, 4));
   paramContainerEl.appendChild(size);
+
+  /**
+   * LANGUAGE
+   */
+  var language = createExpandableGroup('language', true);
+  language.children[1].appendChild(createParam('lang', 7, 4));
+  paramContainerEl.appendChild(language);
 
   setFocus('point.lat');
 }
