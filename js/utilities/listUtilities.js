@@ -60,7 +60,7 @@ function addErrors(containerEl, results) {
       var label = document.createElement('div');
       label.className = "alert alert-danger";
       label.role = "alert";
-      label.innerHTML = '[ERROR] ' + error;
+      label.textContent = '[ERROR] ' + error;
       containerEl.appendChild(label);
     });
   }
@@ -73,7 +73,7 @@ function addWarnings(containerEl, results) {
       var label = document.createElement('div');
       label.className = "alert alert-warning";
       label.role = "alert";
-      label.innerHTML = '[WARNING] ' + error;
+      label.textContent = '[WARNING] ' + error;
       containerEl.appendChild(label);
     });
   }
