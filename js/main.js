@@ -12,7 +12,7 @@ function redirectToQuery(e) {
     return false;
   }
   else {
-    document.getElementById('query-preview').innerHTML = '<h4>' + buildQueryPreview() + '</h4>';
+    document.getElementById('query-preview').textContent = buildQueryPreview();
   }
   return true;
 }
@@ -40,7 +40,7 @@ function onLoad() {
 
   document.getElementById('endpoint-' + currentEndpoint).classList.add('active');
 
-  document.getElementById('query-preview').innerHTML = '<h4>' + buildQueryPreview() + '</h4>';
+  document.getElementById('query-preview').textContent = buildQueryPreview();
   query();
 }
 

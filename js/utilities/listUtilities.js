@@ -21,9 +21,14 @@ function populateList(results) {
       var icon = selectIcon(record);
       var linkPath = buildPlaceLink(record);
 
-      label.innerHTML = icon + '    ' +
-          //'<i>(' + record.properties.source + ')</i>     ' +
-        '<a href="' + linkPath + '">' + record.properties.label + "</a>";
+      var linkText = document.createElement('a');
+      linkText.textContent = '    ' + record.properties.label;
+      linkText.setAttribute('href', linkPath);
+
+
+      label.appendChild(icon);
+      label.appendChild(linkText);
+
       listEl.appendChild(label);
     });
     containerEl.appendChild(listEl);
@@ -31,12 +36,17 @@ function populateList(results) {
 }
 
 function selectIcon(record) {
+  var i = document.createElement('i');
+  i.setAttribute('aria-hidden', true);
+  i.classList.add('fa');
+
   switch (record.properties.layer) {
-    case 'venue':   return '<i class="fa fa-building" aria-hidden="true"></i>';
-    case 'address': return '<i class="fa fa-home" aria-hidden="true"></i>';
-    case 'street':  return '<i class="fa fa-road" aria-hidden="true"></i>';
-    default:        return '<i class="fa fa-globe" aria-hidden="true"></i>';
+    case 'venue':   i.classList.add('fa-building'); break;
+    case 'address': i.classList.add('fa-home'); break;
+    case 'street':  i.classList.add('fa-road'); break;
+    default:        i.classList.add('fa-globe');
   }
+  return i;
 }
 
 function buildPlaceLink(record) {
