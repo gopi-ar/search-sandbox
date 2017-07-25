@@ -18,7 +18,7 @@ function query() {
   console.log(results);
 
   var resultsEl = document.getElementById('results-raw');
-  resultsEl.innerHTML = JSON.stringify(results, null, 2);
+  resultsEl.textContent = JSON.stringify(results, null, 2);
   hljs.highlightBlock(resultsEl);
 
   populateList(results);
